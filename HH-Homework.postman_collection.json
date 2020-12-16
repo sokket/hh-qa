@@ -1,0 +1,670 @@
+{
+	"info": {
+		"_postman_id": "f59dfae0-3edc-46ea-8663-6dae92033fd2",
+		"name": "HH-Homework",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search for word forms",
+			"item": [
+				{
+					"name": "Case of the word",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b55a7fa8-5226-4b48-8767-17a7e744a4c3",
+								"exec": [
+									"pm.test(\"Response contains requered text\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"продавец\")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=Продавца",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "Продавца"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Part of word (EN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e067421a-d47d-4548-bf5f-11f88361556f",
+								"exec": [
+									"pm.test(\"Response contains requered text\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"developer\")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=dev*",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "dev*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Part of word (RU)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa708d8d-54eb-4de1-8cb0-eb4e04d0b507",
+								"exec": [
+									"pm.test(\"Response contains requered text\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"геолог\")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=Гео*",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "Гео*"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "In a special form (with '!')",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5671af27-7d97-48cd-8ef4-7e4b6c55a2d7",
+								"exec": [
+									"pm.test(\"Response contains word in requered form\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"продавцы\")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=!Продавцы",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "!Продавцы"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plural form (RU)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd8b0b23-0982-48ad-a74d-626897994df3",
+								"exec": [
+									"pm.test(\"Response contains requered text\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"продавец\")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=Продавцы",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "Продавцы"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Plural form (EN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c1cf795e-aa8b-4ab4-9b12-4025beec1d70",
+								"exec": [
+									"pm.test(\"Response contains requered text\", function() {",
+									"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.include(\"developer \")",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=developers",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "developers"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Logic operators",
+			"item": [
+				{
+					"name": "OR",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bfefafa4-2a08-4933-9e57-6f87236744f7",
+								"exec": [
+									"pm.test(\"Response contains required text\", function () {",
+									"    let txt = JSON.stringify(pm.response.json().items).toLowerCase()",
+									"    let result = txt.includes(\"android\") || txt.includes(\"c#\")",
+									"    pm.expect(result).to.be.true",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=\"Android OR C%23\"",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "\"Android OR C%23\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AND",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "485fbd0e-28c8-446b-a4b4-51d122f7b307",
+								"exec": [
+									"pm.test(\"Response contains required text\", function () {",
+									"    let txt = JSON.stringify(pm.response.json().items).toLowerCase()",
+									"    let result = txt.includes(\"android\") && txt.includes(\"c#\")",
+									"    pm.expect(result).to.be.true",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=\"Android AND C%23\"",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "\"Android AND C%23\""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "NOT",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "513f0fb3-601b-4b90-8438-05121ec9fb08",
+								"exec": [
+									"pm.test(\"Response contains required text\", function () {",
+									"    let txt = JSON.stringify(pm.response.json().items).toLowerCase()",
+									"    let result = txt.includes(\"android\") && !txt.includes(\"kotlin\")",
+									"    pm.expect(result).to.be.true",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=Android NOT Kotlin",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "Android NOT Kotlin"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d583ff9-3204-4bd5-9a80-9dc518abb47d",
+								"exec": [
+									"pm.test(\"Response contains required text\", function () {",
+									"    let txt = JSON.stringify(pm.response.json().items).toLowerCase()",
+									"    let result = txt.includes(\"android\") && txt.includes(\"rxjava2\") && !txt.includes(\"kotlin\")",
+									"    pm.expect(result).to.be.true",
+									"})",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.hh.ru/vacancies?text=(Android AND rxJava2) NOT Kotlin",
+							"protocol": "https",
+							"host": [
+								"api",
+								"hh",
+								"ru"
+							],
+							"path": [
+								"vacancies"
+							],
+							"query": [
+								{
+									"key": "text",
+									"value": "(Android AND rxJava2) NOT Kotlin"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Basic Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "357e81db-5110-41cf-b48e-964c6eae8963",
+						"exec": [
+							"pm.test(\"Response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok",
+							"     pm.response.to.be.withBody",
+							"     pm.response.to.be.json",
+							"})",
+							"",
+							"pm.test(\"Response contains required text\", function() {",
+							"    let txt = JSON.stringify(pm.response.json().items).toLowerCase()",
+							"    let result = txt.includes(\"kotlin\") && txt.includes(\"android\")",
+							"    pm.expect(result).to.be.true",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Kotlin Android",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Kotlin Android"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Synonyms",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f5d4c9f3-9472-40f9-93aa-d2f3eb9301a9",
+						"exec": [
+							"pm.test(\"Response contains required synonym\", function() {",
+							"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.includes(\"по связям с общественностью\")",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=pr-менеджер&per_page=50",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "pr-менеджер"
+						},
+						{
+							"key": "per_page",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NotFound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d237e9fd-9209-4d04-a504-ee2d67240217",
+						"exec": [
+							"pm.test(\"Test match\", function() {",
+							"    pm.response.to.have.status(200)",
+							"    pm.expect(pm.response.json().found).eq(0)",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=Ju97cJ6KpayRWKVV",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Ju97cJ6KpayRWKVV"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search for phrases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76fe369b-20b1-40fd-8d75-fc0e8b41f19a",
+						"exec": [
+							"pm.test(\"Response contains required phrase\", function() {",
+							"    pm.expect(JSON.stringify(pm.response.json().items).toLowerCase()).to.includes(\"qa инженер\")",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=\"QA инженер\"",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "\"QA инженер\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Field Search",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "280265d0-edef-4053-b2c2-248df8ea5daf",
+						"exec": [
+							"pm.test(\"Response contains required text\", function() {",
+							"    let txt = JSON.stringify(pm.response.json().items.map((it) => it.name)).toLowerCase()",
+							"    console.log(txt)",
+							"    let result = txt.includes(\"java\") || txt.includes(\"android\")",
+							"    pm.expect(result).to.be.true",
+							"})",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.hh.ru/vacancies?text=NAME:(java OR android)",
+					"protocol": "https",
+					"host": [
+						"api",
+						"hh",
+						"ru"
+					],
+					"path": [
+						"vacancies"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "NAME:(java OR android)"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "TOKEN_REMOVED",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}
